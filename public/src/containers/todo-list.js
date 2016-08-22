@@ -7,7 +7,8 @@ class TodoList extends Component{
         const todoItem = this.props.todos
             .map((todo,index)=>
             <div key={index}>
-                {todo.task}
+                <input type="checkbox" onChange={this.props.onToogle.bind(this,todo.id)}/>
+                {todo.isDone ? <s>{todo.task}</s> :todo.task}
                 <button onClick={this.props.onRemove.bind(this,todo.id)}>x</button>
             </div>);
         return (
@@ -22,7 +23,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onRemove:(id)=> dispatch({type:'REMOVE',id})
+        onRemove:(id)=> dispatch({type:'REMOVE',id}),
+        onToogle:(id) => dispatch({type:'TOOGLE',id})
     }
 }
 

@@ -1,6 +1,7 @@
 let id = 0;
 export default function (state = {todos: []}, action) {
-    const index = state.todos.find(todo => todo.id === action.id);
+    const index = state.todos
+        .indexOf(state.todos.find(todo => todo.id === action.id));
 
     switch (action.type) {
         case 'ADD':
@@ -8,6 +9,9 @@ export default function (state = {todos: []}, action) {
             return {todos: [...state.todos]};
         case 'REMOVE':
             state.todos.splice(index, 1);
+            return {todos: [...state.todos]};
+        case 'TOOGLE':
+            state.todos[index].isDone = !state.todos[index].isDone;
             return {todos: [...state.todos]};
     }
 

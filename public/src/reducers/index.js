@@ -1,4 +1,9 @@
 let id = 0;
+
+function clearCompleted(todos) {
+    return todos.filter(todo => todo.isDone===false);
+}
+
 export default function (state = {todos: []}, action) {
     const index = state.todos
         .indexOf(state.todos.find(todo => todo.id === action.id));
@@ -17,8 +22,10 @@ export default function (state = {todos: []}, action) {
             return {todos: [...state.todos],name:state.name};
 
         case 'SELECTNAME':
-            console.log(action.name);
             return {todos: [...state.todos], name:action.name};
+
+        case 'CLEARCOM':
+            return {todos: clearCompleted(state.todos)}
     }
 
     return state;

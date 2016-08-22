@@ -8,6 +8,7 @@ class TodoList extends Component{
             .map((todo,index)=>
             <div key={index}>
                 {todo.task}
+                <button onClick={this.props.onRemove.bind(this,todo.id)}>x</button>
             </div>);
         return (
             <div>{todoItem}</div>
@@ -19,4 +20,10 @@ function mapStateToProps(state) {
     return {todos:state.todos};
 }
 
-export default connect(mapStateToProps,()=>{return {}})(TodoList);
+function mapDispatchToProps(dispatch) {
+    return {
+        onRemove:(id)=> dispatch({type:'REMOVE',id})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TodoList);

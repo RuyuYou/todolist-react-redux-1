@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {render} from 'react-dom'
-import {connect} from 'react-redux'
+import {render} from 'react-dom';
+import {connect} from 'react-redux';
 
 class AddTodo extends Component{
     add(){

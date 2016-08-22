@@ -1,7 +1,5 @@
-export default function (state=0,action) {
-    let newState = 0;
+export default function (state={ todos:
+    [{task:"cheng",id:0,isDone:false}]},action) {
 
-    newState = state + 1;
-
-    return newState;
+    return state;
 }

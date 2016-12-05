@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {render} from 'react-dom';
 import App from './containers/app';
 
@@ -9,9 +9,9 @@ import reducer from './reducers/index'
 const store = createStore(reducer);
 
 render(
-    <Provider store={store}>
-        <App/>
-    </Provider>
-    ,document.getElementById('app')
+  <Provider store={store}>
+    <App/>
+  </Provider>
+  , document.getElementById('app')
 );
 
